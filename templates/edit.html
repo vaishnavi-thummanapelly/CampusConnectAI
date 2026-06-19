@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Information</title>
+</head>
+<body>
+
+    <h1>Edit Information</h1>
+
+    <form method="POST">
+
+        <label>Category:</label><br>
+        <input type="text"
+               name="category"
+               value="{{ record[1] }}"
+               required>
+
+        <br><br>
+
+        <label>Details:</label><br>
+        <input type="text"
+               name="details"
+               value="{{ record[2] }}"
+               required>
+
+        <br><br>
+
+        <button type="submit">
+            Update Information
+        </button>
+
+    </form>
+
+</body>
+</html>

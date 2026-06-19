@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CampusConnect AI - Admin Panel</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/chatbot">Chatbot</a>
+        <a href="/login">Admin login</a>
+        <a href="/upload_pdf">Upload PDF</a>
+    </nav>
+
+    <div class="container">
+
+        <h1>Admin Panel</h1>
+
+        <form method="POST">
+
+            <label>Category:</label><br>
+            <input type="text" name="category" required>
+
+            <br><br>
+
+            <label>Details:</label><br>
+            <input type="text" name="details" required>
+
+            <br><br>
+
+            <button type="submit">Add Information</button>
+
+        </form>
+
+        <hr>
+
+        <h2>Stored Information</h2>
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for row in records %}
+
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+
+                <td>
+                    <a href="/edit/{{ row[0] }}">
+                       Edit
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/delete/{{ row[0] }}">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</body>
+</html>
